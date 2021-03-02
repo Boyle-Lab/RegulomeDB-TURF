@@ -1,2 +1,2 @@
 # RegulomeDB-SURF
-Data repository for SURF paper
+Data repository for TURF paper
