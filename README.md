@@ -4,4 +4,4 @@
 
 * All ASB SNVs and MPRA variants used for training and evaluation are under `Training/`.
 
-* An example input feature file `example_input_features.txt` and a python script for calculating TURF scores `predict_TURF.py` are under `Final_models/`.
+* An example of input feature file `example_input_features.txt` and a python script for calculating TURF scores `predict_TURF.py` are under `Final_models/`.
