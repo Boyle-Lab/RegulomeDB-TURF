@@ -4,7 +4,6 @@
 
 * All ASB SNVs and MPRA variants used for training and evaluation are under `Training/`.
 
-<<<<<<< HEAD
 * The script used to train the final TURF models `train_TURF_ASB.py` is under `Final_models/`.  We included the following features on each column as described in Supplemental Table S2:
 
 | Column name       | Description |
@@ -33,5 +32,5 @@
 The features were retrieved from the RegulomeDB web server as json objects (for example: https://regulomedb.org/regulome-search/?regions=chr1:39492461-39492462&genome=GRCh37&format=json), and processed with custom script `Training/Features_generation/get_RegDB_features.py`.
 
 * An example input feature file `example_input_features.txt` and a python script for calculating TURF scores `predict_TURF.py` are under `Final_models/`.
-=======
+
 * An example of input feature file `example_input_features.txt` and a python script for calculating TURF scores `predict_TURF.py` are under `Final_models/`.
