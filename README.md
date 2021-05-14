@@ -15,15 +15,24 @@ cd Demo
 python predict_TURF.py example_json.txt example.bed organ_list.txt example_predictions.txt
 
 ```
+### Usage
+```
+python predict_TURF.py input_json input_bed query_organ_list output_predictions
+```
 
-Required input files:
-* ```example_json.txt```: A file with an json object on each line for each variant, which contains the information of assays overlapping the variant position queried through RegulomeDB. This can be retrieved from the RegulomeDB web server (for example: https://regulomedb.org/regulome-search/?regions=chr1:39492461-39492462&genome=GRCh37&format=json). The example we included here is trimmed json objects with only the information we need for generating features in TURF models.
+Input files:
+* ```input_json```: A file with an json object on each line for each variant, which contains the information of assays overlapping the variant position queried through RegulomeDB. This can be retrieved from the RegulomeDB web server (for example: https://regulomedb.org/regulome-search/?regions=chr1:39492461-39492462&genome=GRCh37&format=json). The example we included here is the trimmed json objects with only the information we need for generating features in TURF models.
 
-* ```example.bed```: A bed file containing the positions and genotypes for each query variant. The columns are chromosome, start, end, ref, alt.
+* ```input_bed```: A bed file containing the positions and genotypes for each query variant. The columns are chromosome, start, end, ref, alt.
 
-* ```organ_list.txt```: The list of query organs for TURF organ-specific scores.
+* ```query_organ_list```: The list of query organs for TURF organ-specific scores (```organ_list.txt```contains the 51 ENCODE organs with available organ-specific features that we included in our paper)
 
-* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals), and an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You can download from:**
+Other required files:
+* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals), and an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You will need to download from:**
+
+* ```biosample_organ.txt```: Each line is a mapping from biosample name to its relevant organ(s) downloaded from ENCODE website: https://www.encodeproject.org/report/?type=BiosampleType.
+
+
 
 Output file:
 * ```example_predictions.txt```: The predictions of TURF generic and organ-specific scores, with a header explaining each column.
