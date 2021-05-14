@@ -10,7 +10,7 @@ x=np.array(train_ASB[features])
 y=np.array(train_ASB['label'])
 clf_generic=RandomForestClassifier(n_estimators=100,random_state=100,oob_score=True)
 clf_generic.fit(x,y)
-pickle.dump(clf_generic,open('TURF_generic_2.sav','wb')) 
+pickle.dump(clf_generic,open('TURF_generic.sav','wb')) 
 
 #Train tissue-specific rf models for each ASB cell line with the 7 features in the final TURF ensemble model
 features_names_cell_sp = ['H3K27ac_cellSp',
