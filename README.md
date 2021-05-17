@@ -21,14 +21,14 @@ python predict_TURF.py input_json input_bed query_organ_list output_predictions
 ```
 
 ### Input files:
-* ```input_json```: A file with an json object on each line for each variant, which contains the information of assays overlapping the variant position queried through RegulomeDB. This can be retrieved from the RegulomeDB web server (for example: https://regulomedb.org/regulome-search/?regions=chr1:39492461-39492462&genome=GRCh37&format=json). The example we included here is the trimmed json objects with only the information we need for generating features in TURF models.
+* ```input_json```: A file with an json object on each line for each query variant, which contains the information of assays overlapping the variant position queried through RegulomeDB. This can be retrieved from the RegulomeDB web server (for example: https://regulomedb.org/regulome-search/?regions=chr1:39492461-39492462&genome=GRCh37&format=json). The example we included here is the trimmed json objects with only the information we need for generating features in TURF models.
 
 * ```input_bed```: A bed file containing the positions and genotypes for each query variant. The columns are chromosome, start, end, ref, alt.
 
-* ```query_organ_list```: The list of query organs for TURF organ-specific scores (```organ_list.txt```contains the 51 ENCODE organs with available organ-specific features that we included in our paper)
+* ```query_organ_list```: The list of query organs for TURF organ-specific scores (```organ_list.txt```contains the 51 ENCODE organs with available organ-specific features that we included in our paper).
 
 ### Other required files:
-* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals). For funsig from DeepSEA ([Zhou and Troyanskaya 2015](https://www.nature.com/articles/nmeth.3547)), we calculated each of the three possible nucleotide changes on every genome position within the union set of DNase-seq peaks (ENOCDE 2012), as well as all 1000 Genome project phase3 variants. There is also an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You will need to download here: [Precalculated_features/](https://drive.google.com/drive/folders/11cFBCjvHniwsY5fO17jHxj_GcOa-llaJ?usp=sharing)**
+* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals). For funsig from DeepSEA ([Zhou and Troyanskaya 2015](https://www.nature.com/articles/nmeth.3547)), we calculated each of the three possible nucleotide changes on every genome position within the union set of DNase-seq peaks (ENOCDE 2012), as well as all 1000 Genome project phase3 variants. There is also an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You will need to download here: [Precalculated_features/](https://drive.google.com/drive/folders/11cFBCjvHniwsY5fO17jHxj_GcOa-llaJ?usp=sharing)**.
 
 * ```biosample_organ.txt```: Each line is a mapping from biosample name to its relevant organ(s) downloaded from ENCODE website: https://www.encodeproject.org/report/?type=BiosampleType.
 
