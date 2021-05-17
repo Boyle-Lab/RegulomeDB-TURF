@@ -28,7 +28,7 @@ python predict_TURF.py input_json input_bed query_organ_list output_predictions
 * ```query_organ_list```: The list of query organs for TURF organ-specific scores (```organ_list.txt```contains the 51 ENCODE organs with available organ-specific features that we included in our paper)
 
 ### Other required files:
-* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals). For funsig from DeepSEA, we calculated each of the three possible nucleotide changes on every genome position within the union set of DNase-seq peaks (ENOCDE 2012), as well as all 1000 Genome project phase3 variants. There is also an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You will need to download here: [Precalculated_features/](https://drive.google.com/drive/folders/11cFBCjvHniwsY5fO17jHxj_GcOa-llaJ?usp=sharing)**
+* ```Precalculated_features/```: This includes the bigwig files for all precalculated features we used in TURF generic scores (IC_change, IC_matched_change, funsig and ChIP signals). For funsig from DeepSEA ([Zhou and Troyanskaya 2015](https://www.nature.com/articles/nmeth.3547)), we calculated each of the three possible nucleotide changes on every genome position within the union set of DNase-seq peaks (ENOCDE 2012), as well as all 1000 Genome project phase3 variants. There is also an SQL database containing all histone mark ChIP-seq peak files from ENCODE 2019 which is used for calculating TURF organ-specific scores. **You will need to download here: [Precalculated_features/](https://drive.google.com/drive/folders/11cFBCjvHniwsY5fO17jHxj_GcOa-llaJ?usp=sharing)**
 
 * ```biosample_organ.txt```: Each line is a mapping from biosample name to its relevant organ(s) downloaded from ENCODE website: https://www.encodeproject.org/report/?type=BiosampleType.
 
@@ -55,7 +55,7 @@ Note: We are integrating TURF pipeline into the interface of RegulomeDB web serv
 | FOOTPRINT_matched | TF motifs from PWM matching with matched TF ChIP-seq peaks|
 | IC_change | Information content change of two alleles in PWM matching|
 | IC_matched_change | Information content change of two alleles in PWM matching with matched TF ChIP-seq peaks        |
-| funsig |Functional significance score from DeepSEA      |
+| funsig |Functional significance score from [DeepSEA](https://www.nature.com/articles/nmeth.3547)      |
 | ChIP_quantile1,ChIP_quantile2,ChIP_quantile3,ChIP_max,ChIP_var   |Quantiles (25%,50%,75% and 100%) and variance of ChIP-seq signals across all available ChIP-seq experiments from ENCODE       |
 | **Tissue-specific features** ||
 |H3K4me1_tissueSp|H3K4me1 peaks from ChIP-seq|
