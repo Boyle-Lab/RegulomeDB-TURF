@@ -35,7 +35,32 @@ python predict_TURF.py input_json input_bed query_organ_list output_predictions
 ### Output file:
 * ```example_predictions.txt```: The predictions of TURF generic and organ-specific scores, with a header explaining each column.
 
-Note: We are integrating TURF pipeline into the interface of RegulomeDB web server, including all precalculated features as well as constant updates on histone mark ChIP-seq datasets.
+**Note:** We are integrating TURF pipeline into the interface of RegulomeDB web server, including all precalculated features as well as constant updates on histone mark ChIP-seq datasets.
+
+## AMI (Amazon Machine Image) for RegulomeDB query
+![image](AMI_screenshot.png)
+We have set up a public AMI for RegulomeDB, available on `us-west-2` Oregon. You will need a `t3.2xlarge` size instance at minimum to support the elasticsearch for RegulomeDB database. 
+
+The RegulomeDB AMI can be found under aws [EC2 service](https://aws.amazon.com/ec2/?ec2-whats-new.sort-by=item.additionalFields.postDateTime&ec2-whats-new.sort-order=desc):
+1. Go to **AMIs** under Images.
+2. Set region as **Oregon**.
+3. Select **Public images**.
+4. Search either by **'regulome'**, or by AMI ID **'ami-04363a9ca8ad88717'**.
+5. You will then see the AMI here.
+6. Click **Launch** for you own instance.
+
+### Query variants from AMI
+You can use a python script for querying a set of input variants. Help messages can be found by:
+```
+bin/regulome-search -h
+
+```
+#### Example
+```
+bin/regulome-search -f /home/ubuntu/example/example.bed --peak > example_json.txt
+
+```
+This will generate the example input json file for scoring, you can then use `predict_TURF.py` to generate TURF scores as shown in the Demo part above.
 
 ## Other available files
 * Precalculated TURF generic scores and organ-specific scores on 51 ENCODE organs for **GWAS variants** from GWAS Catalog after LD expansion (with R<sup>2</sup> threshold of 0.6) are under `GWAS_variants/`.
