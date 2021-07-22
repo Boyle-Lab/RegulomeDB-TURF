@@ -53,12 +53,10 @@ The RegulomeDB AMI can be found under aws [EC2 service](https://aws.amazon.com/e
 You can use a python script for querying a set of input variants. Help messages can be found by:
 ```
 bin/regulome-search -h
-
 ```
 #### Example
 ```
 bin/regulome-search -f /home/ubuntu/example/example.bed --peak > example_json.txt
-
 ```
 This will generate the example input json file for scoring, you can then use `predict_TURF.py` to generate TURF scores as shown in the Demo part above.
 
